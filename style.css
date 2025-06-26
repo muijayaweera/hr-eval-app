@@ -44,33 +44,120 @@ button {
   border-radius: 8px;
 }
 
-.password-container {
+* {
+  box-sizing: border-box;
+  font-family: 'Mary Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 90%;
+  max-width: 650px; /* wider than tall = rectangle */
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-card {
+  position: relative;
+  padding: 2.5rem 3rem;
+  width: 90%;
+  max-width: 650px;
+  background: white;
+  border-radius: 24px;
+
+  /* Gradient border trick */
+  background: 
+    linear-gradient(white, white) padding-box,
+    linear-gradient(to right, #3C8DFF, #4C20E1) border-box;
+  border: 3px solid transparent;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.login-card h2 {
+  text-align: center;
+  color: #000;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.login-card label {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fdfdfd;
+}
+
+.password-wrapper {
   position: relative;
 }
 
-.password-container input {
-  width: 100%;
+.password-wrapper input {
   padding-right: 3rem;
 }
 
 #toggle-password {
   position: absolute;
-  right: 0.5rem;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #ccc;
+  font-size: 1rem;
+  color: #777;
   cursor: pointer;
 }
 
-.options {
+.forgot {
   text-align: right;
-  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.options a {
-  color: #00adb5;
+.forgot a {
+  font-size: 0.85rem;
+  color: #4C20E1;
   text-decoration: none;
-  font-size: 0.9rem;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, #3C8DFF, #4C20E1);
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.login-btn:hover {
+  opacity: 0.95;
+}
+
+.brand {
+  color: #4C20E1;
 }

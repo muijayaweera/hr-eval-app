@@ -13,9 +13,9 @@
 <body>
 	
 	<div class="container">
-		<div class="form-box login">
+		<div class="form-box evaluate">
 			<form action="">
-				<h1>Login</h1>
+				<h1>Login to Evaluate</h1>
 				<div class="input-box">
 					<input type="text" placeholder="Username"
 					required>
@@ -29,8 +29,39 @@
         <div class="forgot-link">
           <a href="#">Forgot Password?</a>
         </div>
+		<button type="submit" class="btn">Login</button>
 			</form>
 		</div>
+
+		<div class="form-box view">
+			<form action="">
+				<h1>Login to View</h1>
+				<div class="input-box">
+					<input type="text" placeholder="Username"
+					required>
+          <i class='bx bxs-user'></i>
+				</div>
+				<div class="input-box">
+					<input type="password" placeholder="Password"
+					required>
+          <i class='bx bxs-lock-alt' ></i>
+				</div>
+        <div class="forgot-link">
+          <a href="#">Forgot Password?</a>
+        </div>
+		<button type="submit" class="btn">Login</button>
+			</form>
+		</div>
+
+		<div class="toggle-box">
+			<div class="toggle-panel toggle-left">
+				<h1>Welcome Back!</h1>
+				<p>To Conduct Evalution</p>
+				<button class="btn evaluate-btn">Click Here</button>
+			</div>
+		</div>
 	</div>
+
+	<script src="script.js"></script>
 </body>
 </html>

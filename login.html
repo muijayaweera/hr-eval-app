@@ -10,7 +10,7 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body>
+<body class="login-page">
 	
 	<div class="container">
 		<div class="form-box evaluate">
@@ -69,6 +69,27 @@
 		</div>
 	</div>
 
-	<script src="script.js"></script>
+<!-- Firebase SDKs -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "YOUR_REAL_KEY",
+    authDomain: "YOUR_REAL_DOMAIN",
+    projectId: "YOUR_REAL_PROJECT_ID",
+    storageBucket: "YOUR_REAL_BUCKET",
+    messagingSenderId: "YOUR_REAL_SENDER_ID",
+    appId: "YOUR_REAL_APP_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // your login logic here, same as what I gave before
+</script>
+
+	<script type="module" src="script.js"></script>
+
 </body>
 </html>

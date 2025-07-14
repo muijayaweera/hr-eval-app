@@ -624,3 +624,55 @@ main .pending a{
   color: var(--color-primary);
 }
 
+
+
+/*right sidee*/
+
+.right {
+  margin-top: 1.4rem;
+}
+
+.right .top {
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+}
+
+.right .top button {
+  display: none;
+}
+
+.right .theme-toggler {
+  background: var(--color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.8rem;
+  width: 6rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+}
+
+.right .theme-toggler span {
+  font-size: 1.2rem;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right .theme-toggler span.active {
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--border-radius);
+}
+
+.right .top .profile {
+  width: 105px; /* or try 30px if you want it even smaller */
+  height: 105px;
+  display: flex;
+  gap: 1rem;
+  text-align: right;
+}
+

@@ -1,3 +1,4 @@
+/*
 // Toggle login views
 const container = document.querySelector('.container');
 const viewBtn = document.querySelector('.view-btn');
@@ -59,3 +60,30 @@ document.querySelectorAll('.form-box form').forEach(form => {
       });
   });
 });
+*/
+
+
+
+/*const sideMenu = document.querySelector("aside");
+const menuBtn = document.querySelector("#menu-btn");
+const closeBtn = document.querySelector("#close-btn");
+
+menuBtn.addEventListener('click', () => {
+  sideMenu.style.display = 'block';
+})
+
+closeBtn.addEventListener('click', () => {
+  sideMenu.style.display = 'none';
+})
+  */
+
+const themeToggler = document.querySelector(".theme-toggler");
+
+//change theme
+themeToggler.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme-variables');
+
+  themeToggler.querySelector('span:nth-child(1)').classList.toggle('active');
+  themeToggler.querySelector('span:nth-child(2)').classList.toggle('active');
+  
+})

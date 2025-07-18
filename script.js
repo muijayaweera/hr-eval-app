@@ -60,8 +60,8 @@ document.querySelectorAll('.form-box form').forEach(form => {
       });
   });
 });
-*/
 
+*/
 
 
 /*const sideMenu = document.querySelector("aside");

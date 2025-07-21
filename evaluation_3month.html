@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
   <meta charset="UTF-8">
   <title>3 Month Evaluation</title>
   <style>
@@ -48,7 +49,8 @@
 
   <form id="evaluationForm">
     <div class="question">
-      <label>1. Communication Skills</label>
+      <h3>1. Job Knowledge</h3>
+      <label>The levels of absorption of duties & responsibilities about the job and work with minimal supervision</label>
       <select name="q1">
         <option value="0">Select</option>
         <option value="5">5 - Excellent</option>
@@ -60,7 +62,33 @@
     </div>
 
     <div class="question">
-      <label>2. Punctuality</label>
+      <label>Can be relied upon to meet challenges and deliver on time, follow-up assigned work.</label>
+      <select name="q1">
+        <option value="0">Select</option>
+        <option value="5">5 - Excellent</option>
+        <option value="4">4 - Good</option>
+        <option value="3">3 - Average</option>
+        <option value="2">2 - Poor</option>
+        <option value="1">1 - Very Poor</option>
+      </select>
+    </div>
+
+  
+    <div class="question">
+      <h3>2. Technical Knowledge</h3>
+      <label>Fair knowlege about technical aspects</label>
+      <select name="q3">
+        <option value="0">Select</option>
+        <option value="5">5 - Excellent</option>
+        <option value="4">4 - Good</option>
+        <option value="3">3 - Average</option>
+        <option value="2">2 - Poor</option>
+        <option value="1">1 - Very Poor</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>Seeks/ applies innovative and relevant techniques</label>
       <select name="q2">
         <option value="0">Select</option>
         <option value="5">5 - Excellent</option>
@@ -72,8 +100,8 @@
     </div>
 
     <div class="question">
-      <label>3. Teamwork</label>
-      <select name="q3">
+      <label>Use his/her technical knowledge to generate numerous improvements in processes, procedures and operations</label>
+      <select name="q2">
         <option value="0">Select</option>
         <option value="5">5 - Excellent</option>
         <option value="4">4 - Good</option>
@@ -82,6 +110,8 @@
         <option value="1">1 - Very Poor</option>
       </select>
     </div>
+
+
 
     <button type="button" class="submit-btn" onclick="calculateResult()">Submit Evaluation</button>
 

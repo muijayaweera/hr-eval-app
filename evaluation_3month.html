@@ -1,146 +1,70 @@
 <!-- evaluation_3month.html -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
-  <meta charset="UTF-8">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>3 Month Evaluation</title>
-  <style>
-    body {
-      font-family: Arial;
-      padding: 30px;
-      background-color: #f0f4ff;
-    }
-    h2 {
-      margin-bottom: 20px;
-    }
-    .question {
-      margin-bottom: 25px;
-    }
-    .question label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 5px;
-    }
-    select {
-      padding: 5px;
-      font-size: 14px;
-    }
-    .submit-btn {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #003F8F;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    #result {
-      margin-top: 30px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #003F8F;
-    }
-  </style>
+  <link rel="stylesheet" href="eval3month.css" />
 </head>
 <body>
 
-  <h2>3 Month Evaluation</h2>
+  <h1>3 Month Evaluation</h1>
 
-  <form id="evaluationForm">
-    <div class="question">
-      <h3>1. Job Knowledge</h3>
-      <label>The levels of absorption of duties & responsibilities about the job and work with minimal supervision</label>
-      <select name="q1">
-        <option value="0">Select</option>
-        <option value="5">5 - Excellent</option>
-        <option value="4">4 - Good</option>
-        <option value="3">3 - Average</option>
-        <option value="2">2 - Poor</option>
-        <option value="1">1 - Very Poor</option>
-      </select>
+  <div class="section-title">Employee Details</div>
+
+  <div class="card">
+    <div class="employee-details">
+      <div class="form-group">
+        <label>Employee Name :</label>
+        <input type="text" placeholder="Enter name"/>
+      </div>
+      <div class="form-group">
+        <label>Date Joined :</label>
+        <input type="date"/>
+      </div>
+      <div class="form-group">
+        <label>EPF Number :</label>
+        <input type="text"/>
+      </div>
+      <div class="form-group">
+        <label>Location / Dept :</label>
+        <input type="text"/>
+      </div>
+      <div class="form-group">
+        <label>Designation :</label>
+        <input type="text"/>
+      </div>
+      <div class="form-group">
+        <label>Period Covered :</label>
+        <input type="text"/>
+      </div>
+      <div class="form-group">
+        <label>Current Salary :</label>
+        <input type="text"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="traits-section">
+    <div class="section-title">Factors/ Skills/ Traits</div>
+
+    <div class="traits-header">
+      <span></span>
+      <span>Weightage</span>
+      <span>Rating by HOD</span>
     </div>
 
-    <div class="question">
-      <label>Can be relied upon to meet challenges and deliver on time, follow-up assigned work.</label>
-      <select name="q1">
-        <option value="0">Select</option>
-        <option value="5">5 - Excellent</option>
-        <option value="4">4 - Good</option>
-        <option value="3">3 - Average</option>
-        <option value="2">2 - Poor</option>
-        <option value="1">1 - Very Poor</option>
-      </select>
+    <div class="trait-box">
+      <div class="trait-title">Job Knowledge</div>
+      <div class="trait-desc">The levels of absorption of duties & responsibilities about the job and work with minimal supervision.</div>
+      <div class="trait-row">
+        <div class="trait-desc">Can be relied upon to meet challenges and deliver on time, follow up assigned work</div>
+        <div class="weightage">10</div>
+        <input class="rating" type="number" min="0" max="10" placeholder="5"/>
+      </div>
     </div>
-
-  
-    <div class="question">
-      <h3>2. Technical Knowledge</h3>
-      <label>Fair knowlege about technical aspects</label>
-      <select name="q3">
-        <option value="0">Select</option>
-        <option value="5">5 - Excellent</option>
-        <option value="4">4 - Good</option>
-        <option value="3">3 - Average</option>
-        <option value="2">2 - Poor</option>
-        <option value="1">1 - Very Poor</option>
-      </select>
-    </div>
-
-    <div class="question">
-      <label>Seeks/ applies innovative and relevant techniques</label>
-      <select name="q2">
-        <option value="0">Select</option>
-        <option value="5">5 - Excellent</option>
-        <option value="4">4 - Good</option>
-        <option value="3">3 - Average</option>
-        <option value="2">2 - Poor</option>
-        <option value="1">1 - Very Poor</option>
-      </select>
-    </div>
-
-    <div class="question">
-      <label>Use his/her technical knowledge to generate numerous improvements in processes, procedures and operations</label>
-      <select name="q2">
-        <option value="0">Select</option>
-        <option value="5">5 - Excellent</option>
-        <option value="4">4 - Good</option>
-        <option value="3">3 - Average</option>
-        <option value="2">2 - Poor</option>
-        <option value="1">1 - Very Poor</option>
-      </select>
-    </div>
-
-
-
-    <button type="button" class="submit-btn" onclick="calculateResult()">Submit Evaluation</button>
-
-    <div id="result"></div>
-  </form>
-
-  <script>
-    function calculateResult() {
-      const form = document.getElementById("evaluationForm");
-      const q1 = parseInt(form.q1.value);
-      const q2 = parseInt(form.q2.value);
-      const q3 = parseInt(form.q3.value);
-
-      if (!q1 || !q2 || !q3) {
-        alert("Please grade all questions before submitting.");
-        return;
-      }
-
-      const total = q1 + q2 + q3;
-      let grade;
-
-      if (total >= 13) grade = 'A';
-      else if (total >= 10) grade = 'B';
-      else if (total >= 7) grade = 'C';
-      else grade = 'D';
-
-      document.getElementById("result").innerText = `Final Grade: ${grade}`;
-    }
-  </script>
+  </div>
 
 </body>
 </html>

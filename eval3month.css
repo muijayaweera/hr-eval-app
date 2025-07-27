@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 30px;
+  background: #f7f7f7;
+  color: #111;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+.employee-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #f2f2f2;
+  outline: none;
+}
+
+.traits-section {
+  margin-top: 40px;
+}
+
+.traits-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.trait-box {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+.trait-title {
+  font-weight: bold;
+  color: #0056cc;
+  margin-bottom: 8px;
+}
+
+.trait-desc {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.trait-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid #eee;
+}
+
+.trait-row:last-child {
+  border-bottom: 1px solid #eee;
+}
+
+.trait-row .weightage,
+.trait-row input {
+  text-align: center;
+  width: 60px;
+  font-weight: 500;
+}
+
+input.rating {
+  border: none;
+  background: #f2f2f2;
+  border-radius: 6px;
+  padding: 6px;
+}

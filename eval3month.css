@@ -1,11 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+
+
+:root {
+  --color-primary: #003F8F;
+  --color-danger: #E3D53A;
+  --color-white: #fff;
+  --color-info-dark: #7d8da1;
+  --color-info-light: #dce1eb;
+  --color-dark: #363949;
+  --color-light: rgba(132, 139, 200, 0.18);
+  --color-primary-variant: #111e88;
+  --color-dark-variant: #677483;
+  --color-background: #f6f6f6;
+
+  --card-border-radius: 2rem;
+  --border-radius: 0.4rem;
+  --border-radius-1: 0.8rem;
+  --border-radius-3: 1.2rem;
+
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+
+  --box-shadow: 0 2rem 3rem (var(--color-light));
+
+}
+
+
+.dark-theme-variables {
+  --color-background: #181a1e;
+  --color-white: #202528;
+  --color-dark: #edeffd;
+  --color-dark-variant: #a3bdcc;
+  --color-light: rgba(0, 0, 0, 0.4);
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
 * {
   box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   margin: 0;
   padding: 30px;
   background: #f7f7f7;
@@ -26,7 +64,7 @@ h1 {
 
 .card {
   background: white;
-  border-radius: 10px;
+  border-radius: var(--border-radius-1);
   padding: 25px;
   box-shadow: 0 0 5px rgba(0,0,0,0.05);
 }
@@ -50,7 +88,7 @@ h1 {
 
 .form-group input {
   padding: 10px;
-  border-radius: 8px;
+  border-radius: var(--border-radius-1);
   border: none;
   background: #f2f2f2;
   outline: none;
@@ -69,38 +107,43 @@ h1 {
 
 .trait-box {
   background: white;
-  border-radius: 10px;
+  border-radius: var(--border-radius-1);
   padding: 20px;
   box-shadow: 0 0 5px rgba(0,0,0,0.05);
 }
 
 .trait-title {
   font-weight: bold;
-  color: #0056cc;
+  color: var(--color-primary);
   margin-bottom: 8px;
 }
 
 .trait-desc {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #444;
 }
 
 .trait-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
+  display: grid;
+  grid-template-columns: 1fr 100px 120px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
   border-top: 1px solid #eee;
 }
 
-.trait-row:last-child {
-  border-bottom: 1px solid #eee;
+.trait-row:first-of-type {
+  border-top: none;
+  font-weight: bold;
+  background: #f9f9f9;
 }
 
-.trait-row .weightage,
-.trait-row input {
+.trait-col {
+  font-size: 14px;
+}
+
+.trait-col.center {
   text-align: center;
-  width: 60px;
-  font-weight: 500;
 }
 
 input.rating {
@@ -108,4 +151,6 @@ input.rating {
   background: #f2f2f2;
   border-radius: 6px;
   padding: 6px;
+  width: 60px;
+  text-align: center;
 }

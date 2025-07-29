@@ -1,116 +1,159 @@
-<!-- evaluation_6month.html -->
-<!DOCTYPE html>
+<!-- evaluation_3month.html -->
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>6 Month Evaluation</title>
-  <style>
-    body {
-      font-family: Arial;
-      padding: 30px;
-      background-color: #f0f4ff;
-    }
-    h2 {
-      margin-bottom: 20px;
-    }
-    .question {
-      margin-bottom: 25px;
-    }
-    .question label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 5px;
-    }
-    select {
-      padding: 5px;
-      font-size: 14px;
-    }
-    .submit-btn {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #003F8F;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    #result {
-      margin-top: 30px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #003F8F;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3 Month Evaluation</title>
+  <link rel="stylesheet" href="eval3month.css" />
 </head>
 <body>
 
-  <h2>3 Month Evaluation</h2>
+  <h1>3 Month Evaluation</h1>
 
-  <form id="evaluationForm">
-    <div class="question">
-      <label>1. Overall Performance </label>
-      <select name="q1">
-        <option value="0">Select</option>
-        <option value="5">5 - Excellent</option>
-        <option value="4">4 - Good</option>
-        <option value="3">3 - Average</option>
-        <option value="2">2 - Poor</option>
-        <option value="1">1 - Very Poor</option>
-      </select>
+  <div class="section-title">Employee Details</div>
+
+  <div class="card">
+    <div class="employee-details">
+      <div class="form-group"><label>Employee Name :</label><input type="text" placeholder="Enter name"/></div>
+      <div class="form-group"><label>Date Joined :</label><input type="date"/></div>
+      <div class="form-group"><label>EPF Number :</label><input type="text"/></div>
+      <div class="form-group"><label>Location / Dept :</label><input type="text"/></div>
+      <div class="form-group"><label>Designation :</label><input type="text"/></div>
+      <div class="form-group"><label>Period Covered :</label><input type="text"/></div>
+      <div class="form-group"><label>Current Salary :</label><input type="text"/></div>
+      <div class="form-group"><label>Supervisor :</label><input type="text"/></div>
+    </div>
+  </div>
+
+  <div class="traits-section">
+    <div class="section-title">Factors/ Skills/ Traits</div>
+
+    <!-- Header Row -->
+    <div class="trait-row header-row">
+      <div class="trait-col">Statement</div>
+      <div class="trait-col center">Weightage</div>
+      <div class="trait-col center">Rating by HOD</div>
     </div>
 
-    <div class="question">
-      <label>2. Skills Gained</label>
-      <select name="q2">
-        <option value="0">Select</option>
-        <option value="5">5 - Excellent</option>
-        <option value="4">4 - Good</option>
-        <option value="3">3 - Average</option>
-        <option value="2">2 - Poor</option>
-        <option value="1">1 - Very Poor</option>
-      </select>
+    <!-- Traits Section -->
+    <div class="trait-box">
+      <!-- CATEGORY: Job Knowledge -->
+      <div class="trait-title">Job Knowledge</div>
+      <div class="trait-row">
+        <div class="trait-col">The levels of absorption of duties & responsibilities about the job and work with minimal supervision.</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Can be relied upon to meet challenges and deliver on time, follow up assigned work</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
+      <!-- CATEGORY: Technical Knowledge -->
+      <div class="trait-title">Technical Knowledge</div>
+      <div class="trait-row">
+        <div class="trait-col">Fair knowledge about technical aspects.</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Seeks/ applies innovative and relevant techniques</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Uses technical knowledge to improve processes, procedures, and operations</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
+      <!-- CATEGORY: Attitude Towards Work -->
+      <div class="trait-title">Attitude Towards Work</div>
+      <div class="trait-row">
+        <div class="trait-col">Positive attitude, able to execute any job assigned</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Highly motivated, diplomatic and handles matters well</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Goes beyond the call, eager to learn</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Open minded, receptive to feedback, calm under pressure</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
+      <!-- CATEGORY: Honesty & Integrity -->
+      <div class="trait-title">Honesty & Integrity</div>
+      <div class="trait-row">
+        <div class="trait-col">Displays high integrity and honesty in actions</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Admits mistakes genuinely, reliable and dependable</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Ensures consistency between actions and words</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
+      <!-- CATEGORY: Team Spirit -->
+      <div class="trait-title">Team Spirit</div>
+      <div class="trait-row">
+        <div class="trait-col">Willing to support superiors & coworkers</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+      <div class="trait-row">
+        <div class="trait-col">Works well in team, maintains friendly relationships</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
+      <!-- Remaining categories follow same pattern -->
+      <div class="trait-title">Customer Service Orientation</div>
+      <div class="trait-row">
+        <div class="trait-col">Takes effort to satisfy customers consistently</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
+      <div class="trait-title">Personal Organization & Appearance</div>
+      <div class="trait-row">
+        <div class="trait-col">Well-organized, prioritizes tasks, tidy appearance</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
+      <div class="trait-title">Attendance & Punctuality</div>
+      <div class="trait-row">
+        <div class="trait-col">Regular, punctual and eager to work</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
+      <div class="trait-title">Communication</div>
+      <div class="trait-row">
+        <div class="trait-col">Proactive, updated, shares information effectively</div>
+        <div class="trait-col center">10</div>
+        <div class="trait-col center"><input type="number" class="rating" placeholder="5" /></div>
+      </div>
+
     </div>
-
-    <div class="question">
-      <label>3. Teamwork</label>
-      <select name="q3">
-        <option value="0">Select</option>
-        <option value="5">5 - Excellent</option>
-        <option value="4">4 - Good</option>
-        <option value="3">3 - Average</option>
-        <option value="2">2 - Poor</option>
-        <option value="1">1 - Very Poor</option>
-      </select>
-    </div>
-
-    <button type="button" class="submit-btn" onclick="calculateResult()">Submit Evaluation</button>
-
-    <div id="result"></div>
-  </form>
-
-  <script>
-    function calculateResult() {
-      const form = document.getElementById("evaluationForm");
-      const q1 = parseInt(form.q1.value);
-      const q2 = parseInt(form.q2.value);
-      const q3 = parseInt(form.q3.value);
-
-      if (!q1 || !q2 || !q3) {
-        alert("Please grade all questions before submitting.");
-        return;
-      }
-
-      const total = q1 + q2 + q3;
-      let grade;
-
-      if (total >= 13) grade = 'A';
-      else if (total >= 10) grade = 'B';
-      else if (total >= 7) grade = 'C';
-      else grade = 'D';
-
-      document.getElementById("result").innerText = `Final Grade: ${grade}`;
-    }
-  </script>
+  </div>
 
 </body>
 </html>

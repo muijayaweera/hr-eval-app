@@ -123,3 +123,65 @@
 
 </body>
 </html>
+
+<button onclick="generateLetter()">Generate Evaluation Letter</button>
+
+<div id="evaluationLetter" style="margin-top: 30px; white-space: pre-wrap; font-family: 'Poppins', sans-serif;"></div>
+
+<script>
+  function generateLetter() {
+    const ratings = document.querySelectorAll(".rating");
+    let total = 0;
+    let count = 0;
+
+    ratings.forEach(input => {
+      const val = parseFloat(input.value);
+      if (!isNaN(val)) {
+        total += val;
+        count++;
+      }
+    });
+
+    const average = (total / count).toFixed(2);
+    const employeeName = document.querySelector('input[placeholder="Enter name"]').value || "the employee";
+
+    let performanceLevel = "";
+    let comment = "";
+
+    if (average >= 9) {
+      performanceLevel = "Excellent";
+      comment = "The employee has demonstrated exceptional performance in all key areas and has exceeded expectations consistently.";
+    } else if (average >= 7) {
+      performanceLevel = "Good";
+      comment = "The employee has met expectations in most areas and has shown strong potential and consistency in performance.";
+    } else if (average >= 5) {
+      performanceLevel = "Satisfactory";
+      comment = "The employee has shown satisfactory performance with room for improvement in several areas.";
+    } else {
+      performanceLevel = "Needs Improvement";
+      comment = "The employee’s performance has not met expectations and significant improvement is required.";
+    }
+
+    const letter = `Dear ${employeeName},
+
+Following the 3-month performance evaluation, we are pleased to share your overall performance summary.
+
+🔹 Total Score: ${total} / ${count * 10}
+🔹 Average Score: ${average} / 10
+🔹 Performance Level: ${performanceLevel}
+
+Summary:
+${comment}
+
+Based on this evaluation, we recommend ${performanceLevel === "Excellent" || performanceLevel === "Good" ? "confirming your appointment with the company" : "continued probation with further support and guidance to improve performance"}.
+
+We appreciate your contribution during this period and encourage you to keep progressing.
+
+Sincerely,  
+[Your Company’s HR Team]
+`;
+
+    document.getElementById("evaluationLetter").innerText = letter;
+  }
+</script>
+

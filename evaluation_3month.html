@@ -217,6 +217,6 @@ Sincerely,
 [Your Company’s HR Team]`;
 
     const encodedLetter = encodeURIComponent(letter);
-    window.open(`letter.html?content=${encodedLetter}`, '_blank');
+    window.location.href = `letter.html?content=${encodedLetter}`;
   }
 </script>

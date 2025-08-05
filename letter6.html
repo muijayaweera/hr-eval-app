@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="letter-container">
-    <h2>3-Month Evaluation Letter</h2>
+    <h2>6-Month Evaluation Letter</h2>
     <div id="letter-content" class="letter-content"></div>
   </div>
 
@@ -19,15 +19,5 @@
     const content = decodeURIComponent(params.get("content") || "");
     document.getElementById("letter-content").innerText = content;
   </script>
-
-    <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
-
-<script>
-  function goBack() {
-    window.location.href = "evaluation_3month.html";
-  }
-</script>
-
-
 </body>
 </html>

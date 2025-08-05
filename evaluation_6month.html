@@ -173,15 +173,18 @@ Following the 3-month performance evaluation, we are pleased to share your overa
 Summary:
 ${comment}
 
-Based on this evaluation, we recommend ${performanceLevel === "Excellent" || performanceLevel === "Good" ? "confirming your appointment with the company" : "continued probation with further support and guidance to improve performance"}.
+Based on this evaluation, we recommend ${
+      performanceLevel === "Excellent" || performanceLevel === "Good"
+        ? "confirming your appointment with the company"
+        : "continued probation with further support and guidance to improve performance"
+    }.
 
 We appreciate your contribution during this period and encourage you to keep progressing.
 
-Sincerely,  
-[Your Company’s HR Team]
-`;
+Sincerely,
+[Your Company’s HR Team]`;
 
-    document.getElementById("evaluationLetter").innerText = letter;
+    const encodedLetter = encodeURIComponent(letter);
+    window.location.href = `letter6.html?content=${encodedLetter}`;
   }
 </script>
-

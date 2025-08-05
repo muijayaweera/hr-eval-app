@@ -1,0 +1,23 @@
+<!-- letter.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluation Letter</title>
+  <link rel="stylesheet" href="letter.css" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="letter-container">
+    <h2>3-Month Evaluation Letter</h2>
+    <div id="letter-content" class="letter-content"></div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const content = decodeURIComponent(params.get("content") || "");
+    document.getElementById("letter-content").innerText = content;
+  </script>
+</body>
+</html>

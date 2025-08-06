@@ -44,3 +44,13 @@ h2 {
 .back-button:hover {
   background-color: #45a049;
 }
+
+#letterContainer {
+  font-family: 'Poppins', sans-serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}

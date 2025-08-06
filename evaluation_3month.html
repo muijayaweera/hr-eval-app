@@ -206,17 +206,20 @@ Summary:
 ${comment}
 
 Based on this evaluation, we recommend ${
-      performanceLevel === "Excellent" || performanceLevel === "Good"
-        ? "confirming your appointment with the company"
-        : "continued probation with further support and guidance to improve performance"
-    }.
+  performanceLevel === "Excellent" || performanceLevel === "Good"
+    ? "confirming your appointment with the company"
+    : "continued probation with further support and guidance to improve performance"
+}.
 
 We appreciate your contribution during this period and encourage you to keep progressing.
 
 Sincerely,
 [Your Company’s HR Team]`;
 
-    const encodedLetter = encodeURIComponent(letter);
-    window.location.href = `letter.html?content=${encodedLetter}`;
+// 👉 Save to localStorage instead of URL
+localStorage.setItem("evaluationLetter", letter);
+
+// 👉 Navigate to letter page
+window.location.href = "letter.html";
   }
 </script>

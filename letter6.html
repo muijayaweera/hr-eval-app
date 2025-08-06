@@ -19,5 +19,14 @@
     const content = decodeURIComponent(params.get("content") || "");
     document.getElementById("letter-content").innerText = content;
   </script>
+
+  <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
+
+  <script>
+  function goBack() {
+    window.location.href = "evaluation_3month.html";
+  }
+  </script>
+
 </body>
 </html>

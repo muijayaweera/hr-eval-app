@@ -12,21 +12,29 @@
   <div class="letter-container">
     <h2>6-Month Evaluation Letter</h2>
     <div id="letter-content" class="letter-content"></div>
+    <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const content = decodeURIComponent(params.get("content") || "");
-    document.getElementById("letter-content").innerText = content;
+    // ✅ Use localStorage to get the letter
+    window.onload = () => {
+      const letter = localStorage.getItem("evaluationLetter");
+      const container = document.getElementById("letter-content");
+
+      if (letter) {
+        container.innerText = letter;
+      } else {
+        container.innerHTML = "<p>No letter found. Please go back and fill the form.</p>";
+      }
+
+      // Optional: clear storage after showing
+      // localStorage.removeItem("evaluationLetter");
+    };
+
+    // Back button function
+    function goBack() {
+      window.location.href = "evaluation_6month.html";
+    }
   </script>
-
-  <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
-
-  <script>
-  function goBack() {
-    window.location.href = "evaluation_3month.html";
-  }
-  </script>
-
 </body>
 </html>

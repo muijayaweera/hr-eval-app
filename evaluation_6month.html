@@ -184,7 +184,11 @@ We appreciate your contribution during this period and encourage you to keep pro
 Sincerely,
 [Your Company’s HR Team]`;
 
-    const encodedLetter = encodeURIComponent(letter);
-    window.location.href = `letter6.html?content=${encodedLetter}`;
+ 
+// 👉 Save to localStorage instead of URL
+localStorage.setItem("evaluationLetter", letter);
+
+// 👉 Navigate to letter page
+window.location.href = "letter.html";
   }
 </script>

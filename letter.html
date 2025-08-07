@@ -7,6 +7,8 @@
   <title>Evaluation Letter</title>
   <link rel="stylesheet" href="letter.css" />
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 </head>
 <body>
   <div id="toast" class="toast">Letter loaded successfully ✅</div>
@@ -14,8 +16,10 @@
   <div class="letter-container">
     <h2>3-Month Evaluation Letter</h2>
     <div id="letter-content" class="letter-content"></div>
-    <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
   </div>
+
+  <button onclick="downloadPDF()" class="download-button">⬇ Download as PDF</button>
+  <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
 
   <script>
     // ✅ Use localStorage to get the letter
@@ -42,6 +46,11 @@ function showToast() {
     toast.classList.remove("show");
   }, 3000); // visible for 3 seconds
 }
+
+  function downloadPDF() {
+    const element = document.getElementById('letterContainer');
+    html2pdf().from(element).save('Evaluation_Letter.pdf');
+  }
 
   </script>
 </body>

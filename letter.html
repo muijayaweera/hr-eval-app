@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="toast" class="toast">Letter loaded successfully ✅</div>
+
   <div class="letter-container">
     <h2>3-Month Evaluation Letter</h2>
     <div id="letter-content" class="letter-content"></div>
@@ -18,23 +20,29 @@
   <script>
     // ✅ Use localStorage to get the letter
     window.onload = () => {
-      const letter = localStorage.getItem("evaluationLetter");
-      const container = document.getElementById("letter-content");
+  const letter = localStorage.getItem("evaluationLetter");
+  const container = document.getElementById("letter-content");
 
-      if (letter) {
-        container.innerText = letter;
-      } else {
-        container.innerHTML = "<p>No letter found. Please go back and fill the form.</p>";
-      }
+  if (letter) {
+    container.innerText = letter;
+    showToast();
+  } else {
+    container.innerHTML = "<p>No letter found. Please go back and fill the form.</p>";
+  }
+};
 
-      // Optional: clear storage after showing
-      // localStorage.removeItem("evaluationLetter");
-    };
+function goBack() {
+  window.location.href = "evaluation_3month.html";
+}
 
-    // Back button function
-    function goBack() {
-      window.location.href = "evaluation_3month.html";
-    }
+function showToast() {
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000); // visible for 3 seconds
+}
+
   </script>
 </body>
 </html>

@@ -185,3 +185,26 @@ button:active {
   transform: translateY(0);
   background-color: var(--color-primary);
 }
+
+.toast {
+  visibility: hidden; /* Hidden by default */
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+}

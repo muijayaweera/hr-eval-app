@@ -26,6 +26,8 @@
     </div>
   </div>
 
+  <div id="toast" class="toast"></div>
+
   <div class="traits-section">
     <div class="section-title">Factors/ Skills/ Traits</div>
 
@@ -165,6 +167,27 @@
   // Get inputs
 const personalInputs = document.querySelectorAll(".employee-details input");
 const ratingInputs = document.querySelectorAll(".rating");
+const toast = document.getElementById("toast"); 
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+// Replace your previous ratingInputs click listeners with this:
+ratingInputs.forEach(input => {
+  input.addEventListener("click", function(e) {
+    if (input.disabled) {
+      e.preventDefault();
+      showToast("⚠ Please complete all personal details before entering ratings.");
+    }
+  });
+});
+
+
 
 // Disable ratings initially
 ratingInputs.forEach(input => input.disabled = true);
@@ -177,12 +200,22 @@ function checkPersonalDetails() {
       allFilled = false;
     }
   });
+  console.log("All personal filled? ", allFilled);
 
-  // Enable/disable ratings
+
+
   ratingInputs.forEach(input => {
-    input.disabled = !allFilled;
+  input.addEventListener("click", function(e) {
+    console.log("Clicked rating, disabled? ", input.disabled);
+    if (input.disabled) {
+      e.preventDefault();
+      showToast("⚠ Please complete all personal details before entering ratings.");
+    }
   });
+});
+
 }
+
 
 // Listen for changes in personal details
 personalInputs.forEach(input => {
@@ -251,4 +284,8 @@ localStorage.setItem("evaluationLetter", letter);
 // 👉 Navigate to letter page
 window.location.href = "letter.html";
   }
+
+window.addEventListener("DOMContentLoaded", checkPersonalDetails);
+
+
 </script>

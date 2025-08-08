@@ -161,6 +161,35 @@
 <div id="evaluationLetter" style="margin-top: 30px; white-space: pre-wrap; font-family: 'Poppins', sans-serif;"></div>
 
 <script>
+
+  // Get inputs
+const personalInputs = document.querySelectorAll(".employee-details input");
+const ratingInputs = document.querySelectorAll(".rating");
+
+// Disable ratings initially
+ratingInputs.forEach(input => input.disabled = true);
+
+// Function to check if personal details are filled
+function checkPersonalDetails() {
+  let allFilled = true;
+  personalInputs.forEach(input => {
+    if (!input.value.trim()) {
+      allFilled = false;
+    }
+  });
+
+  // Enable/disable ratings
+  ratingInputs.forEach(input => {
+    input.disabled = !allFilled;
+  });
+}
+
+// Listen for changes in personal details
+personalInputs.forEach(input => {
+  input.addEventListener("input", checkPersonalDetails);
+});
+
+
   function generateLetter() {
     const ratings = document.querySelectorAll(".rating");
     let total = 0;

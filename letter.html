@@ -9,55 +9,97 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // ✅ Your Firebase config
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "SENDER_ID",
+      appId: "APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
 </head>
 <body>
+  <!-- Toast -->
   <div id="toast" class="toast">Letter loaded successfully ✅</div>
 
   <div id="letterContainer" class="letter-container">
-  <h2>3-Month Evaluation Letter</h2>
-  <div id="letter-content" class="letter-content"></div>
-</div>
+    <h2>3-Month Evaluation Letter</h2>
+    <div id="letter-content" class="letter-content"></div>
+  </div>
 
-<div style="text-align: center; margin-top: 20px;">
-  <button id="confirmBtn">Confirm Evaluation</button>
-</div>
-
-
+  <div style="text-align: center; margin-top: 20px;">
+    <button id="confirmBtn" class="confirm-button">✅ Confirm Evaluation</button>
+  </div>
 
   <button onclick="downloadPDF()" class="download-button">⬇ Download as PDF</button>
   <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
 
   <script>
-    // ✅ Use localStorage to get the letter
+    // Load letter content from localStorage
     window.onload = () => {
-  const letter = localStorage.getItem("evaluationLetter");
-  const container = document.getElementById("letter-content");
+      const letter = localStorage.getItem("evaluationLetter");
+      const container = document.getElementById("letter-content");
 
-  if (letter) {
-    container.innerText = letter;
-    showToast();
-  } else {
-    container.innerHTML = "<p>No letter found. Please go back and fill the form.</p>";
-  }
-};
+      if (letter) {
+        container.innerText = letter;
+        showToast("Letter loaded successfully ✅");
+      } else {
+        container.innerHTML = "<p>No letter found. Please go back and fill the form.</p>";
+      }
+    };
 
-function goBack() {
-  window.location.href = "evaluation_3month.html";
-}
+    // Back button
+    function goBack() {
+      window.location.href = "evaluation_3month.html";
+    }
 
-function showToast() {
-  const toast = document.getElementById("toast");
-  toast.classList.add("show");
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 3000); // visible for 3 seconds
-}
+    // Toast function
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
 
-  function downloadPDF() {
-    const element = document.getElementById('letterContainer');
-    html2pdf().from(element).save('Evaluation_Letter.pdf');
-  }
+    // Download PDF
+    function downloadPDF() {
+      const element = document.getElementById('letterContainer');
+      html2pdf().from(element).save('Evaluation_Letter.pdf');
+    }
 
+    // Confirm button - Save to Firebase
+    document.getElementById("confirmBtn").addEventListener("click", function () {
+      const evalData = {
+        code: "EVAL " + Math.floor(Math.random() * 9000 + 1000),
+        type: "3mon",
+        status: "Pass",
+        date: new Date()
+      };
+
+      db.collection("evaluations").add(evalData)
+        .then(() => {
+          showToast("Evaluation saved successfully ✅");
+          setTimeout(() => {
+            window.location.href = "index.html"; // Redirect after saving
+          }, 2000);
+        })
+        .catch((error) => {
+          console.error("Error adding evaluation: ", error);
+          showToast("❌ Error saving evaluation");
+        });
+    });
   </script>
 </body>
 </html>

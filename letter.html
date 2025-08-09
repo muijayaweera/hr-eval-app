@@ -16,13 +16,15 @@
   <script>
     // ✅ Your Firebase config
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "SENDER_ID",
-      appId: "APP_ID"
-    };
+  apiKey: "AIzaSyBNTbXC5uXNTWJlbOvmJ8B0k1dx-hv3pPc",
+  authDomain: "smartshelf-3c91d.firebaseapp.com",
+  databaseURL: "https://smartshelf-3c91d-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "smartshelf-3c91d",
+  storageBucket: "smartshelf-3c91d.firebasestorage.app",
+  messagingSenderId: "974289829133",
+  appId: "1:974289829133:web:2d961fe28112c6b1c38444",
+  measurementId: "G-09KKY8S3N1"
+};
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
@@ -38,7 +40,7 @@
   </div>
 
   <div style="text-align: center; margin-top: 20px;">
-    <button id="confirmBtn" class="confirm-button">✅ Confirm Evaluation</button>
+    <button id="confirmBtn" class="confirm-button">Confirm Evaluation</button>
   </div>
 
   <button onclick="downloadPDF()" class="download-button">⬇ Download as PDF</button>

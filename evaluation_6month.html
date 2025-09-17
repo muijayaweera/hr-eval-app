@@ -130,39 +130,62 @@
 
 <script>
   function generateLetter() {
-    const ratings = document.querySelectorAll(".rating");
-    let total = 0;
-    let count = 0;
+  const ratings = document.querySelectorAll(".rating");
+  let total = 0;
+  let count = 0;
 
-    ratings.forEach(input => {
-      const val = parseFloat(input.value);
-      if (!isNaN(val)) {
-        total += val;
-        count++;
-      }
-    });
-
-    const average = (total / count).toFixed(2);
-    const employeeName = document.querySelector('input[placeholder="Enter name"]').value || "the employee";
-
-    let performanceLevel = "";
-    let comment = "";
-
-    if (average >= 9) {
-      performanceLevel = "Excellent";
-      comment = "The employee has demonstrated exceptional performance in all key areas and has exceeded expectations consistently.";
-    } else if (average >= 7) {
-      performanceLevel = "Good";
-      comment = "The employee has met expectations in most areas and has shown strong potential and consistency in performance.";
-    } else if (average >= 5) {
-      performanceLevel = "Satisfactory";
-      comment = "The employee has shown satisfactory performance with room for improvement in several areas.";
-    } else {
-      performanceLevel = "Needs Improvement";
-      comment = "The employee’s performance has not met expectations and significant improvement is required.";
+  ratings.forEach(input => {
+    const val = parseFloat(input.value);
+    if (!isNaN(val)) {
+      total += val;
+      count++;
     }
+  });
 
-    const letter = `Dear ${employeeName},
+  const average = (total / count).toFixed(2);
+
+  // Grab employee details
+  const employeeName = document.querySelector('input[placeholder="Enter name"]').value || "the employee";
+  const dateJoined = document.querySelector('input[type="date"]').value || "N/A";
+  const epf = document.querySelectorAll(".employee-details input")[2].value || "N/A";
+  const dept = document.querySelectorAll(".employee-details input")[3].value || "N/A";
+  const designation = document.querySelectorAll(".employee-details input")[4].value || "N/A";
+  const periodCovered = document.querySelectorAll(".employee-details input")[5].value || "N/A";
+  const salary = document.querySelectorAll(".employee-details input")[6].value || "N/A";
+  const supervisor = document.querySelectorAll(".employee-details input")[7].value || "N/A";
+
+  let performanceLevel = "";
+  let comment = "";
+
+  if (average >= 9) {
+    performanceLevel = "Excellent";
+    comment = "The employee has demonstrated exceptional performance in all key areas and has exceeded expectations consistently.";
+  } else if (average >= 7) {
+    performanceLevel = "Good";
+    comment = "The employee has met expectations in most areas and has shown strong potential and consistency in performance.";
+  } else if (average >= 5) {
+    performanceLevel = "Satisfactory";
+    comment = "The employee has shown satisfactory performance with room for improvement in several areas.";
+  } else {
+    performanceLevel = "Needs Improvement";
+    comment = "The employee’s performance has not met expectations and significant improvement is required.";
+  }
+
+  // Build the letter with employee details + evaluation summary
+  const letter = 
+`Employee Evaluation Letter (6 Months)
+----------------------------------------
+Name: ${employeeName}
+Date Joined: ${dateJoined}
+EPF Number: ${epf}
+Department/Location: ${dept}
+Designation: ${designation}
+Period Covered: ${periodCovered}
+Current Salary: ${salary}
+Supervisor: ${supervisor}
+
+----------------------------------------
+Dear ${employeeName},
 
 Following the 6-month performance evaluation, we are pleased to share your overall performance summary.
 
@@ -174,21 +197,21 @@ Summary:
 ${comment}
 
 Based on this evaluation, we recommend ${
-      performanceLevel === "Excellent" || performanceLevel === "Good"
-        ? "confirming your appointment with the company"
-        : "continued probation with further support and guidance to improve performance"
-    }.
+    performanceLevel === "Excellent" || performanceLevel === "Good"
+      ? "confirming your appointment with the company"
+      : "continued probation with further support and guidance to improve performance"
+  }.
 
 We appreciate your contribution during this period and encourage you to keep progressing.
 
 Sincerely,
 [Your Company’s HR Team]`;
 
- 
-// 👉 Save to localStorage instead of URL
-localStorage.setItem("evaluationLetter", letter);
+  // Save to localStorage so letter.html can fetch it
+  localStorage.setItem("evaluationLetter", letter);
 
-// 👉 Navigate to letter page
-window.location.href = "letter.html";
-  }
+  // Redirect to letter page
+  window.location.href = "letter.html";
+}
+
 </script>

@@ -7,34 +7,101 @@
   <title>Evaluation Letter</title>
   <link rel="stylesheet" href="letter.css" />
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="letter-container">
-    <h2>6-Month Evaluation Letter</h2>
-    <div id="letter-content" class="letter-content"></div>
-    <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
-  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
   <script>
-    // ✅ Use localStorage to get the letter
+    // ✅ Your Firebase config
+    const firebaseConfig = {
+  apiKey: "AIzaSyBNTbXC5uXNTWJlbOvmJ8B0k1dx-hv3pPc",
+  authDomain: "smartshelf-3c91d.firebaseapp.com",
+  databaseURL: "https://smartshelf-3c91d-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "smartshelf-3c91d",
+  storageBucket: "smartshelf-3c91d.firebasestorage.app",
+  messagingSenderId: "974289829133",
+  appId: "1:974289829133:web:2d961fe28112c6b1c38444",
+  measurementId: "G-09KKY8S3N1"
+};
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+</head>
+<body>
+  <!-- Toast -->
+  <div id="toast" class="toast">Letter loaded successfully ✅</div>
+
+  <div id="letterContainer" class="letter-container">
+    <h2>6-Month Evaluation Letter</h2>
+    <div id="letter-content" class="letter-content"></div>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button id="confirmBtn" class="confirm-button">Confirm Evaluation</button>
+  </div>
+
+  <button onclick="downloadPDF()" class="download-button">⬇ Download as PDF</button>
+  <button onclick="goBack()" class="back-button">← Back to Evaluation Form</button>
+
+  <script>
+    // Load letter content from localStorage
     window.onload = () => {
       const letter = localStorage.getItem("evaluationLetter");
       const container = document.getElementById("letter-content");
 
       if (letter) {
         container.innerText = letter;
+        showToast("Letter loaded successfully ✅");
       } else {
         container.innerHTML = "<p>No letter found. Please go back and fill the form.</p>";
       }
-
-      // Optional: clear storage after showing
-      // localStorage.removeItem("evaluationLetter");
     };
 
-    // Back button function
+    // Back button
     function goBack() {
-      window.location.href = "evaluation_6month.html";
+      window.location.href = "evaluation_3month.html";
     }
+
+    // Toast function
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    // Download PDF
+    function downloadPDF() {
+      const element = document.getElementById('letterContainer');
+      html2pdf().from(element).save('Evaluation_Letter.pdf');
+    }
+
+    // Confirm button - Save to Firebase
+    document.getElementById("confirmBtn").addEventListener("click", function () {
+      const evalData = {
+        code: "EVAL " + Math.floor(Math.random() * 9000 + 1000),
+        type: "3mon",
+        status: "Pass",
+        date: new Date()
+      };
+
+      db.collection("evaluations").add(evalData)
+        .then(() => {
+          showToast("Evaluation saved successfully ✅");
+          setTimeout(() => {
+            window.location.href = "index.html"; // Redirect after saving
+          }, 2000);
+        })
+        .catch((error) => {
+          console.error("Error adding evaluation: ", error);
+          showToast("❌ Error saving evaluation");
+        });
+    });
   </script>
 </body>
 </html>

@@ -208,3 +208,7 @@ button:active {
   visibility: visible;
   opacity: 1;
 }
+
+input[type="number"] {
+  text-align: center;
+}

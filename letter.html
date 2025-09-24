@@ -53,7 +53,7 @@
       const container = document.getElementById("letter-content");
 
       if (letter) {
-        container.innerText = letter;
+        container.innerHTML = letter;
         showToast("Letter loaded successfully ✅");
       } else {
         container.innerHTML = "<p>No letter found. Please go back and fill the form.</p>";

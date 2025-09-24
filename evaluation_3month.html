@@ -394,8 +394,8 @@ function generateLetter() {
 
   // Build the letter with employee details + evaluation summary
   const letter = 
-`Employee Evaluation Letter (3 Months)
-----------------------------------------
+`Employee Evaluation Letter
+
 Name: ${employeeName}
 Date Joined: ${dateJoined}
 EPF Number: ${epf}
@@ -405,14 +405,13 @@ Period Covered: ${periodCovered}
 Current Salary: ${salary}
 Supervisor: ${supervisor}
 
-----------------------------------------
 Dear ${employeeName},
 
 Following the 3-month performance evaluation, we are pleased to share your overall performance summary.
 
-🔹 Total Score: ${total} / ${count * 10}
-🔹 Average Score: ${average} / 10
-🔹 Performance Level: ${performanceLevel}
+Total Score: ${total} / ${count * 10}
+Average Score: ${average} / 10
+Performance Level: ${performanceLevel}
 
 Summary:
 ${comment}
